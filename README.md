@@ -77,10 +77,10 @@
     var obj={
         a:20,
         fn(){
+            // 箭头函数没有this机制，所以this指向fn()
             // fn()是function fn(),所以this指向拥有function的obj
             // this->obj, this.a->obj.a 输出20
             setTimeout(()=>{
-                // 箭头函数没有this机制，所以this指向fn()
                 console.log(this.a)
             })
         }
