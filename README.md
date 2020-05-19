@@ -92,7 +92,7 @@
     - 用于属性名，保证属性名隐藏，使其私有化
     - 用于迭代器模式，利用[Symbol.iterator]实现迭代
     - 用于类型转换，利用[Symbol.toPrimitive]进行类型判断
-    - 修改toString & match & replace & split & search方法
+    - 可以修改toString & match & replace & split & search方法
 
 7. 浅拷贝：新变量拷贝旧变量后，新变量指向的内存地址全部或者一部分还是指向旧变量的内存地址
 
@@ -100,8 +100,25 @@
 
 8. js异步编程主要解决了单进程带来的进程执行时间长的问题，异步缩短了代码主进程执行的时间，加快了主进程的执行。
 
-    EventLoop:
+    EventLoop: 代码执行分为主进程和事件队列，其中事件队列就是EventLoop，它分为微任务队列和宏任务队列。在主进程执行时，遇到例如promise.then这类微任务时，将微任务推送到微任务队列，宏任务（如setTimeout这类）也是如此，等主进程结束，再执行微任务，最后执行宏任务
 
-    微任务：
+    微任务：一般指Promise、Object.observe、MutationObserver
 
-    宏任务：
+    宏任务：一般包括整体代码script，setTimeout，setInterval、I/O、UI render
+
+9. 代码路径：./code/promise.js
+
+10. typescript是javascript的超集，实现了以面向对象的方式使用javascript，同时添加了类型系统，使其较javascript在代码编写上更加规范，更加可维护；当然typescript最后代码还是编译成javascript。
+
+11. typescript的优缺点:
+    
+    优点：
+    - 可以在代码编译阶段发现类型错误
+    - 可以帮助重构，增加可维护性
+    - 类，接口，泛型等丰富js的使用
+    - 社区活跃
+    - 对长期开发的项目可以减少维护成本
+
+    缺点：
+    - 需要一定的学习成本，了解很多概念
+    - 短期项目可能会增加一些开发成本
